@@ -58,23 +58,27 @@ npm run dev
 Par défaut : 👉 http://localhost:5173
 
 💻 Scripts utiles
+
 Frontend (React)
+
 Commande	Description
-npm run dev	Démarre le front en mode développement
-npm run build	Génère la version de production
-npm run preview	Teste la version buildée localement
-Backend (Node)
-Commande	Description
-npm run dev	Démarre le serveur avec nodemon
-npm start	Démarre le serveur en production
-🔌 Endpoints principaux (API REST)
-🎮 Jeux Vidéo
-Méthode	Endpoint	Description
-POST	/api/games	Ajouter un nouveau jeu
-GET	/api/games	Lister tous les jeux
-GET	/api/games/:id	Obtenir un jeu spécifique
-PUT	/api/games/:id	Modifier un jeu
-DELETE	/api/games/:id	Supprimer un jeu
+
+## npm run dev	Démarre le front en mode développement
+
+## npm run build	Génère la version de production
+## npm run preview	Teste la version buildée localement
+## Backend (Node)
+## Commande	Description
+## npm run dev	Démarre le serveur avec nodemon
+## npm start	Démarre le serveur en production
+## 🔌 Endpoints principaux (API REST)
+## 🎮 Jeux Vidéo
+## Méthode	Endpoint	Description
+## POST	/api/games	Ajouter un nouveau jeu
+## GET	/api/games	Lister tous les jeux
+## GET	/api/games/:id	Obtenir un jeu spécifique
+## PUT	/api/games/:id	Modifier un jeu
+## DELETE	/api/games/:id	Supprimer un jeu
 
 Exemple de jeu :
 
