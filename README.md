@@ -141,3 +141,4 @@ Développé par : Mohamed Amine Aissaoui
 📄 Licence
 
 Ce projet est sous licence MIT.
+![Description de l'image](assets/image.png)
