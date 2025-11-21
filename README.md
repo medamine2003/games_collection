@@ -1,271 +1,139 @@
-# 📇 My Contacts — Application MERN (React + Node + Express + MongoDB)
+🎮 Game Collection — API & Interface Graphique
 
-Une application complète de gestion de contacts avec authentification JWT, CRUD complet et déploiement cloud (Vercel + Render).  
-Permet de créer, modifier, supprimer et afficher ses contacts personnels après connexion.
+Une application complète pour gérer une collection de jeux vidéo avec API RESTful et interface graphique.
+Les utilisateurs peuvent ajouter, consulter, modifier et supprimer des jeux de leur collection personnelle.
 
----
+🚀 Fonctionnalités principales
 
-## 🚀 Fonctionnalités principales
+🔐 Authentification (optionnelle pour futures extensions)
 
-- 🔐 **Authentification avec JWT** (login / register)
-- 📋 **CRUD complet** sur les contacts
-- ✅ **Protection des routes** côté front et back
-- ⚙️ **Architecture claire** côté client (services, pages, components)
-- 🌍 **Déploiement** :
-  - Frontend : **Vercel**
-  - Backend API : **Render**
-- 💄 **UI avec Bootstrap 5**
+📋 CRUD complet sur les jeux vidéo
 
----
+✅ Validation des données côté serveur
 
-## 🧩 Architecture du projet
+⚙️ Architecture claire côté backend et frontend
 
-```
-📦 my-contacts/
-├── backend/                # Serveur Node/Express (déployé sur Render)
-│   ├── server.js
-│   ├── routes/
-│   │   ├── auth.js
-│   │   └── contacts.js
-│   ├── models/
-│   │   ├── User.js
-│   │   └── Contact.js
-│   ├── controllers/
-│   ├── middleware/
-│   └── .env
-│
-├── frontend/               # Application React (déployée sur Vercel)
-│   ├── src/
-│   │   ├── pages/
-│   │   │   ├── Login.jsx
-│   │   │   ├── Register.jsx
-│   │   │   └── ContactForm.jsx
-│   │   ├── services/
-│   │   │   ├── authServices.js
-│   │   │   └── contactServices.js
-│   │   ├── config/api.js
-│   │   ├── App.jsx
-│   │   └── main.jsx
-│   └── package.json
-│
-└── README.md
-```
+🌍 Interface graphique pour gérer les données
 
----
+💄 UI avec Bootstrap 5 ou Tailwind CSS (au choix)
+⚙️ Installation et configuration
+1. Cloner le projet
+git clone https://github.com/ton-compte/game-collection.git
+cd game-collection
 
-## ⚙️ Installation et configuration
-
-### 1. Cloner le projet
-
-```bash
-git clone https://github.com/ton-compte/my-contacts.git
-cd my-contacts
-```
-
-### 2. Configurer le backend
-
-```bash
+2. Configurer le backend
 cd backend
 npm install
-```
 
-#### 🧾 Fichier `.env`
+🧾 Fichier .env
 
-Crée un fichier `.env` à la racine du dossier `backend` :
+Crée un fichier .env à la racine du dossier backend :
 
-```env
 PORT=8000
-MONGO_URI=mongodb+srv://<USERNAME>:<PASSWORD>@cluster0.mongodb.net/mycontacts
-JWT_SECRET=yourSuperSecretKey
-CORS_ORIGIN=https://my-contacts-iota.vercel.app
-```
+MONGO_URI=mongodb://localhost:27017/game_collection_db
 
-### 3. Lancer le backend
-
-```bash
+3. Lancer le backend
 npm start
-```
+
 
 ou en mode développement :
 
-```bash
 npm run dev
-```
 
-**Par défaut :** 👉 `http://localhost:8000/api`
 
-### 4. Configurer le frontend
+Par défaut : 👉 http://localhost:8000/api
 
-```bash
+4. Configurer le frontend
 cd ../frontend
 npm install
-```
 
-#### ⚙️ Fichier `src/config/api.js`
-
-```javascript
-// Exemple : API Render
-const API_URL = "https://my-contacts-api.onrender.com";
+⚙️ Fichier src/config/api.js
+const API_URL = "http://localhost:8000/api";
 export default API_URL;
-```
 
-### 5. Lancer le frontend
-
-```bash
+5. Lancer le frontend
 npm run dev
-```
 
-**Par défaut :** 👉 `http://localhost:5173`
 
----
+Par défaut : 👉 http://localhost:5173
 
-## 💻 Scripts utiles
+💻 Scripts utiles
+Frontend (React)
+Commande	Description
+npm run dev	Démarre le front en mode développement
+npm run build	Génère la version de production
+npm run preview	Teste la version buildée localement
+Backend (Node)
+Commande	Description
+npm run dev	Démarre le serveur avec nodemon
+npm start	Démarre le serveur en production
+🔌 Endpoints principaux (API REST)
+🎮 Jeux Vidéo
+Méthode	Endpoint	Description
+POST	/api/games	Ajouter un nouveau jeu
+GET	/api/games	Lister tous les jeux
+GET	/api/games/:id	Obtenir un jeu spécifique
+PUT	/api/games/:id	Modifier un jeu
+DELETE	/api/games/:id	Supprimer un jeu
 
-### Frontend (React)
+Exemple de jeu :
 
-| Commande | Description |
-|----------|-------------|
-| `npm run dev` | Démarre le front en mode développement |
-| `npm run build` | Génère la version de production |
-| `npm run preview` | Teste la version buildée localement |
-
-### Backend (Node)
-
-| Commande | Description |
-|----------|-------------|
-| `npm run dev` | Démarre le serveur avec nodemon |
-| `npm start` | Démarre le serveur en production |
-
----
-
-## 🔌 Endpoints principaux (API REST)
-
-### 🧍‍♂️ Authentification
-
-| Méthode | Endpoint | Description |
-|---------|----------|-------------|
-| `POST` | `/api/auth/register` | Créer un nouvel utilisateur |
-| `POST` | `/api/auth/login` | Se connecter et recevoir un token JWT |
-
-**Exemple de réponse (login) :**
-
-```json
 {
-  "token": "eyJhbGciOiJIUzI1NiIsInR5..."
+  "id": "auto-généré",
+  "titre": "The Legend of Zelda: Breath of the Wild",
+  "genre": ["Action", "Aventure", "RPG"],
+  "plateforme": ["Nintendo Switch"],
+  "editeur": "Nintendo",
+  "developpeur": "Nintendo EPD",
+  "annee_sortie": 2017,
+  "metacritic_score": 97,
+  "temps_jeu_heures": 85,
+  "termine": true,
+  "date_ajout": "2025-11-21T10:00:00Z",
+  "date_modification": "2025-11-21T10:00:00Z"
 }
-```
 
-### 📇 Contacts
+🔍 Recherche et statistiques
 
-| Méthode | Endpoint | Description |
-|---------|----------|-------------|
-| `GET` | `/api/contacts` | Récupérer la liste des contacts |
-| `POST` | `/api/contacts` | Créer un nouveau contact |
-| `PATCH` | `/api/contacts/:id` | Modifier un contact |
-| `DELETE` | `/api/contacts/:id` | Supprimer un contact |
+🔎 Recherche et filtrage :
+GET /api/games?genre=RPG&plateforme=PC
 
-**Exemple de contact :**
+📊 Statistiques :
+GET /api/stats (nombre total de jeux, temps de jeu total, etc.)
 
-```json
-{
-  "_id": "66cde8c03b91c8f1f024",
-  "firstName": "john",
-  "lastName": "doe",
-  "phone": "+888850011222"
-}
-```
+⭐ Favoris :
+POST /api/games/:id/favorite
 
----
+📁 Export des données :
+GET /api/games/export
 
-## 🔑 Identifiants de test
+🧾 Validation des données
+const gameSchema = {
+  titre: { type: 'string', required: true, minLength: 1 },
+  genre: { type: 'array', required: true, minItems: 1 },
+  plateforme: { type: 'array', required: true, minItems: 1 },
+  annee_sortie: { type: 'number', min: 1970, max: new Date().getFullYear() },
+  metacritic_score: { type: 'number', min: 0, max: 100 },
+  temps_jeu_heures: { type: 'number', min: 0 },
+  termine: { type: 'boolean', required: true }
+};
 
-| Email | Mot de passe |
-|-------|--------------|
-| `testuser@example.com` | `123456` |
+🧰 Objectifs d’apprentissage
 
----
+✅ Comprendre les opérations CRUD avec MongoDB
 
-## 🔒 Sécurité
+✅ Implémenter une API RESTful
 
-- Toutes les routes `/api/contacts` sont **protégées par JWT**.
-- Le token est stocké dans `localStorage` après connexion.
-- Le front ajoute automatiquement le header :
+✅ Gérer la validation des données
 
-```
-Authorization: Bearer <token>
-```
+✅ Utiliser les bonnes pratiques de développement
 
----
+✅ Traiter les erreurs et les réponses HTTP
 
-## 🌐 Déploiement
+👨‍💻 Auteur
 
-### Frontend — Vercel
+Développé par : Mohamed Amine Aissaoui
 
-- Déployé depuis le dossier `frontend/`
-- Configuration :
-
-```bash
-vercel --prod
-```
-
-### Backend — Render
-
-- Dossier : `backend/`
-- Commande de démarrage : `npm start`
-- Build command : `npm install`
-- **Variables d'environnement :** (`PORT`, `MONGO_URI`, `JWT_SECRET`, `CORS_ORIGIN`)
-
----
-
-## 🧠 Notes techniques
-
-- ⚛️ **React 19** + **Vite**
-- 🧰 **Bootstrap 5**
-- 🔄 **Axios** pour les requêtes API
-- 🧱 **Node.js** + **Express**
-- 🗄️ **MongoDB** (Mongoose)
-- 🔐 **JWT** pour la sécurité
-- 🌍 **CORS** configuré pour le domaine Vercel
-
----
-
-## 🧪 Tests rapides
-
-### 1. Authentification
-
-```bash
-POST /api/auth/login
-{
-  "email": "testuser@example.com",
-  "password": "123456"
-}
-```
-
-### 2. CRUD Contacts
-
-```bash
-GET /api/contacts
-Authorization: Bearer <token>
-```
-
----
-
-## 🧰 Améliorations futures
-
-- 🔄 Pagination des contacts
-- 🔍 Recherche et filtrage
-- 🧑‍💻 Upload photo de profil
-- 📱 Responsive design complet
-- 🧩 Intégration avec un backend Symfony (optionnel)
-
----
-
-## 👨‍💻 Auteur
-
-**Développé par :** Mohamed Amine Aissaoui
-
----
-
-## 📄 Licence
+📄 Licence
 
 Ce projet est sous licence MIT.
