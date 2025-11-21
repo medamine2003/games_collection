@@ -140,5 +140,5 @@ Développé par : Mohamed Amine Aissaoui
 
 📄 Licence
 
-Ce projet est sous licence MIT.
-![Description de l'image](./front-end/src/assets/image.png)
+## Ce projet est sous licence MIT.
+## ![interface de l'application](./front-end/src/assets/image.png)
